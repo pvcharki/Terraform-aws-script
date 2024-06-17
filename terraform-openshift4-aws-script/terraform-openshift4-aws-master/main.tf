@@ -5,7 +5,8 @@ locals {
     },
     var.aws_extra_tags,
   )
-  openshift_installer_url = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${var.openshift_version}"
+  openshift_installer_url ="https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-install-linux.tar.gz"
+  # "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${var.openshift_version}"
 }
 
 provider "aws" {
