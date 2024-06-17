@@ -15,11 +15,11 @@ EOF
   }
 
   provisioner "local-exec" {
-    command = "tar zxvf ${path.root}/installer-files//openshift-install.tar.gz -C ${path.root}/installer-files/"
+    command = "tar zxvf ${path.root}/installer-files//openshift-install-linux.tar.gz -C ${path.root}/installer-files/"
   }
 
   provisioner "local-exec" {
-    command = "rm -f ${path.root}/installer-files//openshift-install.tar.gz ${path.root}/installer-files//robots*.txt* ${path.root}/installer-files//README.md"
+    command = "rm -f ${path.root}/installer-files//openshift-install-linux.tar.gz ${path.root}/installer-files//robots*.txt* ${path.root}/installer-files//README.md"
   }
 }
 
