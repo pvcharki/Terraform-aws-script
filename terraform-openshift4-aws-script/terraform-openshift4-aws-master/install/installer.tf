@@ -25,7 +25,7 @@ EOF
 
 resource "null_resource" "openshift_client" {
   provisioner "local-exec" {
-command = "wget -r -l1 -np -nd https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.6.28 -q -P ./installer-files/"
+command ="wget -r -l1 -np -nd  https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-install-linux.tar.gz -P ./installer-files/"
   }
 }
 /*
@@ -34,7 +34,7 @@ resource "null_resource" "openshift_client" {
     command=<<EOF
      wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-client-linux-4*.tar.gz'
    EOF
-    command = <<EOF
+   /* command = <<EOF
 case $(uname -s) in
   Linux)
     wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-client-linux-4*.tar.gz'
@@ -46,7 +46,7 @@ case $(uname -s) in
     exit 1
     ;;
 esac
-EOF*/
+EOF
   }
 
   provisioner "local-exec" {
@@ -56,7 +56,8 @@ EOF*/
   provisioner "local-exec" {
     command = "rm -f ${path.root}/installer-files//openshift-client-*-4*.tar.gz ${path.root}/installer-files//robots*.txt* ${path.root}/installer-files//README.md"
   }
-}
+} 
+*/
 
 resource "null_resource" "generate_manifests" {
   triggers = {
