@@ -1,12 +1,12 @@
 resource "null_resource" "openshift_installer" {
   provisioner "local-exec" {
-    command = <<EOF
+   command = <<EOF
 case $(uname -s) in
   Linux)
-    wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-install-linux-4*.tar.gz'
+    wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-install-linux.tar.gz'
     ;;
   Darwin)
-    wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-install-mac-4*.tar.gz'
+    wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-install-mac.tar.gz'
     ;;
   *) exit 1
     ;;
