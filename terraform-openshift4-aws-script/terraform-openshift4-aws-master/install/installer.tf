@@ -25,10 +25,16 @@ EOF
 
 resource "null_resource" "openshift_client" {
   provisioner "local-exec" {
+command = "wget -r -l1 -np -nd https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.6.28 -q -P ./installer-files/"
+  }
+}
+/*
+resource "null_resource" "openshift_client" {
+  provisioner "local-exec" {
     command=<<EOF
      wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-client-linux-4*.tar.gz'
    EOF
-   /* command = <<EOF
+    command = <<EOF
 case $(uname -s) in
   Linux)
     wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-client-linux-4*.tar.gz'
