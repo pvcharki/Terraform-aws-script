@@ -22,7 +22,7 @@ variable "base_domain" {
 The base DNS domain of the cluster. It must NOT contain a trailing period. Some
 DNS providers will automatically add this if necessary.
 
-Example: `openshift.example.com`.
+Example: `openshift.vplus.com`.
 
 Note: This field MUST be set manually prior to creating the cluster.
 This applies only to cloud platforms.
@@ -75,7 +75,7 @@ variable "proxy_config" {
     enabled    = false
     httpProxy  = "http://user:password@ip:port"
     httpsProxy = "http://user:password@ip:port"
-    noProxy    = "ip1,ip2,ip3,.example.com,cidr/mask"
+    noProxy    = "ip1,ip2,ip3,.vplus.com,cidr/mask"
   }
 }
 

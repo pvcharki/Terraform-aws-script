@@ -108,7 +108,7 @@ This project installs the OpenShift 4 in several stages where each stage automat
 
 ```
 cluster_name = "ocp4"
-base_domain = "example.com"
+base_domain = "vplus.com"
 openshift_pull_secret = "./openshift_pull_secret.json"
 openshift_version = "4.6.28"
 
@@ -193,7 +193,7 @@ Setting up the mirror repository using AWS ECR:
     Put that into your pull secret:
 
     ```
-    {"353456611220.dkr.ecr.us-east-1.amazonaws.com":{"auth":"<base64string>","email":"abc@example.com"}}
+    {"353456611220.dkr.ecr.us-east-1.amazonaws.com":{"auth":"<base64string>","email":"abc@vplus.com"}}
     ```
 
 3. Mirror quay.io and other OpenShift source into your repository
@@ -218,7 +218,7 @@ Once the mirror registry is created - use the terraform.tfvars similar to below:
 
 ```
 cluster_name = "ocp4"
-base_domain = "example.com"
+base_domain = "vplus.com"
 openshift_pull_secret = "./openshift_pull_secret.json"
 openshift_installer_url = "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.6.28"
 
