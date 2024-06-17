@@ -25,7 +25,10 @@ EOF
 
 resource "null_resource" "openshift_client" {
   provisioner "local-exec" {
-    command = <<EOF
+    command=<<EOF
+     wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-client-linux-4*.tar.gz'
+   EOF
+   /* command = <<EOF
 case $(uname -s) in
   Linux)
     wget -r -l1 -np -nd ${var.openshift_installer_url} -q -P ${path.root}/installer-files/ -A 'openshift-client-linux-4*.tar.gz'
@@ -37,7 +40,7 @@ case $(uname -s) in
     exit 1
     ;;
 esac
-EOF
+EOF*/
   }
 
   provisioner "local-exec" {
