@@ -8,3 +8,4 @@ aws_extra_tags = {
   }
 aws_region = "us-east-1"
 aws_publish_strategy = "External"
+aws_azs=["us-east-1a"]
