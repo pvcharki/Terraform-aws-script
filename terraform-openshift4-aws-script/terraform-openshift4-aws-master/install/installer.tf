@@ -138,7 +138,8 @@ resource "null_resource" "generate_ignition_config" {
   }
 
   provisioner "local-exec" {
-    command = "cp -r ${path.root}/installer-files//temp/manifests ${path.root}/installer-files//temp/_manifests"
+    #command = "cp -r ${path.root}/installer-files//temp/manifests ${path.root}/installer-files//temp/_manifests"
+    command="cp -r ./installer-files//temp/manifests ./installer-files//temp/_manifest"
   }
 
   provisioner "local-exec" {
