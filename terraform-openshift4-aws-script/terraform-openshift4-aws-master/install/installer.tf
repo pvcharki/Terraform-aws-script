@@ -83,7 +83,8 @@ resource "null_resource" "generate_manifests" {
   }
 
   provisioner "local-exec" {
-    command = "${path.root}/installer-files//openshift-install --dir=${path.root}/installer-files//temp create manifests"
+    #command = "${path.root}/installer-files//openshift-install --dir=${path.root}/installer-files//temp create manifests"
+    command = "./installer-files/openshift-install --dir=./installer-files/temp create manifests"
   }
 }
 
