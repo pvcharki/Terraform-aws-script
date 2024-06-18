@@ -13,7 +13,7 @@ data "aws_route53_zone" "public" {
   #  count = local.public_endpoints ? 1 : 0
   count = 1
   #name = var.base_domain
-  zone_id="Z00422892OO3HVUKA25OF"
+  zone_id="Z02154161FDCSVM8XQR2Y" 
 }
 
 resource "aws_route53_zone" "int" {
