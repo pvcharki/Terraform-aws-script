@@ -143,11 +143,13 @@ resource "null_resource" "generate_ignition_config" {
   }
 
   provisioner "local-exec" {
-    command = "cp -r ${path.root}/installer-files//temp/openshift ${path.root}/installer-files//temp/_openshift"
+    #command = "cp -r ${path.root}/installer-files//temp/openshift ${path.root}/installer-files//temp/_openshift"
+    command = "cp -r ./installer-files/temp/openshift ./installer-files/temp/_openshift"
   }
 
   provisioner "local-exec" {
-    command = "${path.root}/installer-files//openshift-install --dir=${path.root}/installer-files//temp create ignition-configs"
+    #command = "${path.root}/installer-files//openshift-install --dir=${path.root}/installer-files//temp create ignition-configs"
+    command = "./installer-files/openshift-install --dir=./installer-files/temp create ignition-configs"
   }
 }
 
